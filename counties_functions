@@ -1,0 +1,43 @@
+// Anthony Vasquez
+// CPSC 120-04
+// 2022-11-13
+// s950tx16wasr10@csu.fullerton.edu
+// @dskoman
+//
+// Lab 10-01
+// Partners: @rtrinh02, @rchristian6
+//
+// Gets the population of the specified county from a vector
+//
+
+#include "counties_functions.h"
+
+#include <string>
+
+std::string AllCountiesString(
+    const std::vector<std::vector<std::string>>& ca_counties) {
+  std::string all_counties_string;
+
+  for (const std::string& county : ca_counties.at(0)) {
+    all_counties_string.append(" ");
+    all_counties_string.append(county);
+  }
+
+  return all_counties_string;
+}
+
+int CountyIndex(const std::vector<std::vector<std::string>>& ca_counties,
+                const std::string& match_county) {
+  int index{-1};
+  int temp_index{0};
+
+  for (const std::string& county : ca_counties.at(0)) {
+    if (county == match_county) {
+      index = temp_index;
+      break;
+    }
+    ++temp_index;
+  }
+
+  return index;
+}
